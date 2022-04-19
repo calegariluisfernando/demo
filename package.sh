@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Define packaging environment.
-export ETC_DIR=./backend/etc
-
+#export ETC_DIR=./backend/etc
+#
 # Define RASP configuration.
 #cp $ETC_DIR/contrast_security.yaml.template $ETC_DIR/contrast_security.yaml
 #
