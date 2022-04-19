@@ -2,10 +2,10 @@
 
 # Define packaging environment.
 #export ETC_DIR=./backend/etc
-#
+
 # Define RASP configuration.
 #cp $ETC_DIR/contrast_security.yaml.template $ETC_DIR/contrast_security.yaml
-#
+
 #sed -i -e 's|${CONTRAST_API_KEY}|'"$CONTRAST_API_KEY"'|g' $ETC_DIR/contrast_security.yaml
 #sed -i -e 's|${CONTRAST_SERVICE_KEY}|'"$CONTRAST_SERVICE_KEY"'|g' $ETC_DIR/contrast_security.yaml
 #sed -i -e 's|${CONTRAST_USER_NAME}|'"$CONTRAST_USER_NAME"'|g' $ETC_DIR/contrast_security.yaml
