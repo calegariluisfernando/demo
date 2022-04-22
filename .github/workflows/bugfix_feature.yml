@@ -1,9 +1,10 @@
-name: Develop pipeline
+name: Bug fixes and Features pipeline
 
 on:
   push:
     branches:
-      - "develop"
+      - "bugfix/*"
+      - "feature/*"
     paths-ignore:
       - "LICENSE"
       - "*.md"
@@ -38,29 +39,15 @@ jobs:
         SONAR_URL: ${{ secrets.SONAR_URL }}
       run: ./codeAnalysis.sh
 
-    - name: 8. Code Analysis - Quality Gate Checking
-      uses: jkumar19/sonar-build-breaker@v1.0.0
-      with:
-        sonar_branch: master
-        project_key: ${{ secrets.SONAR_PROJECT_KEY }}
-        sonar_token: ${{ secrets.SONAR_TOKEN }}
-        sonar_url: ${{ secrets.SONAR_URL }}
+ - name: 8. Code Analysis - Quality Gate Checking
+        uses: jkumar19/sonar-build-breaker@v1.0.0
+        with:
+          sonar_branch: master
+          project_key: ${{ secrets.SONAR_PROJECT_KEY }}
+          sonar_token: ${{ secrets.SONAR_TOKEN }}
+          sonar_url: ${{ secrets.SONAR_URL }}
 
 #    - name: 9. Libraries Analysis - White-box testing (SAST)
 #      env:
 #        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 #      run: ./librariesAnalysis.sh
-      
-    - name: 10. Packaging
-      env:
-        REPOSITORY_URL: ${{ secrets.REPOSITORY_URL }}
-        REPOSITORY_ID: ${{ secrets.REPOSITORY_ID }}
-        CONTRAST_API_KEY: ${{ secrets.CONTRAST_API_KEY }}
-        CONTRAST_SERVICE_KEY: ${{ secrets.CONTRAST_SERVICE_KEY }}
-        CONTRAST_USER_NAME: ${{ secrets.CONTRAST_USER_NAME }}
-      run: ./package.sh
-
-#    - name: 11. Package Analysis - White-box testing (SAST)
-#      env:
-#        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-#      run: ./packageAnalysis.sh
