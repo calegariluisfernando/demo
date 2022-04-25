@@ -98,4 +98,4 @@ jobs:
           GOOGLE_URI_TOKEN: ${{ secrets.GOOGLE_URI_TOKEN }}
           GOOGLE_CERT_URL: ${{ secrets.GOOGLE_CERT_URL }}
           # DATADOG_AGENT_KEY: ${{ secrets.DATADOG_AGENT_KEY }}
-        run: ./deploy.sh
+        run: ./deploy2.sh
