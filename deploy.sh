@@ -38,19 +38,14 @@ if [ ! -f "~/.terraform.d/credentials.tfrc.json" ]; then
 fi
 
 # Check if the GCP authentication settings is created.
-if [ ! -f "/tmp/google.credential.file.json" ]; then
-  # Create the credentials files.
-  sed -i -e 's|${GOOGLE_PROJECT_KEY}|'"$GOOGLE_PROJECT_KEY"'|g' google.credential.file.json
-  sed -i -e 's|${GOOGLE_PRIVATE_KEY_ID}|'"$GOOGLE_PRIVATE_KEY_ID"'|g' google.credential.file.json
-  sed -i -e 's|${GOOGLE_PRIVATE_KEY}|'"$GOOGLE_PRIVATE_KEY"'|g' google.credential.file.json
-  sed -i -e 's|${GOOGLE_CLIENT_EMAIL}|'"$GOOGLE_CLIENT_EMAIL"'|g' google.credential.file.json
-  sed -i -e 's|${GOOGLE_CLIENT_ID}|'"$GOOGLE_CLIENT_ID"'|g' google.credential.file.json
-  sed -i -e 's|${GOOGLE_AUTH_URI}|'"$GOOGLE_AUTH_URI"'|g' google.credential.file.json
-  sed -i -e 's|${GOOGLE_URI_TOKEN}|'"$GOOGLE_URI_TOKEN"'|g' google.credential.file.json
-  sed -i -e 's|${GOOGLE_CERT_URL}|'"$GOOGLE_CERT_URL"'|g' google.credential.file.json
-
-  cat /tmp/google.credential.file.json
-fi
+sed -i -e 's|${GOOGLE_PROJECT_KEY}|'"$GOOGLE_PROJECT_KEY"'|g' google.credential.file.json
+sed -i -e 's|${GOOGLE_PRIVATE_KEY_ID}|'"$GOOGLE_PRIVATE_KEY_ID"'|g' google.credential.file.json
+sed -i -e 's|${GOOGLE_PRIVATE_KEY}|'"$GOOGLE_PRIVATE_KEY"'|g' google.credential.file.json
+sed -i -e 's|${GOOGLE_CLIENT_EMAIL}|'"$GOOGLE_CLIENT_EMAIL"'|g' google.credential.file.json
+sed -i -e 's|${GOOGLE_CLIENT_ID}|'"$GOOGLE_CLIENT_ID"'|g' google.credential.file.json
+sed -i -e 's|${GOOGLE_AUTH_URI}|'"$GOOGLE_AUTH_URI"'|g' google.credential.file.json
+sed -i -e 's|${GOOGLE_URI_TOKEN}|'"$GOOGLE_URI_TOKEN"'|g' google.credential.file.json
+sed -i -e 's|${GOOGLE_CERT_URL}|'"$GOOGLE_CERT_URL"'|g' google.credential.file.json
 
 # Execute the provisioning based on the IaC definition file (terraform.tf).
 $TERRAFORM_CMD init --upgrade
