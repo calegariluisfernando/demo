@@ -92,6 +92,5 @@ $KUBECTL_CMD --kubeconfig=/tmp/.kubeconfig apply -f /tmp/kubernetes.yml
 rm -f /tmp/kubernetes.yml*
 rm -f /tmp/.kubeconfig*
 rm -f /tmp/.id_rsa*
-rm -f /tmp/google.credential.file.json
 
 cd ..
