@@ -93,7 +93,7 @@ resource "linode_instance" "cluster-worker" {
       #"curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh -o install_script.sh",
       #"chmod +x ./install_script.sh",
       #"./install_script.sh"
-    ],
+    ]
 
     connection {
       type        = "ssh"
