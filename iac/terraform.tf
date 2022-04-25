@@ -110,7 +110,7 @@ resource "linode_instance" "cluster-worker" {
 }
 
 provider "google" {
-  credentials = file("${var.google_credential_file  }")
+  credentials = file("${var.google_credential_file}")
 
   project = "${var.google_project_id}"
   region  = "us-central1"
