@@ -52,10 +52,10 @@ jobs:
       #     sonar_token: ${{ secrets.SONAR_TOKEN }}
       #     sonar_url: ${{ secrets.SONAR_URL }}
 
-#    - name: 9. Libraries Analysis - White-box testing (SAST)
-#      env:
-#        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-#      run: ./librariesAnalysis.sh
+      #    - name: 9. Libraries Analysis - White-box testing (SAST)
+      #      env:
+      #        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      #      run: ./librariesAnalysis.sh
 
       - name: 10. Packaging
         env:
@@ -66,10 +66,10 @@ jobs:
           CONTRAST_USER_NAME: ${{ secrets.CONTRAST_USER_NAME }}
         run: ./package.sh
 
-#    - name: 11. Package Analysis - White-box testing (SAST)
-#      env:
-#        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-#      run: ./packageAnalysis.sh
+      #    - name: 11. Package Analysis - White-box testing (SAST)
+      #      env:
+      #        SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      #      run: ./packageAnalysis.sh
 
       - name: 12. Publishing
         env:
@@ -89,5 +89,13 @@ jobs:
           LINODE_SSH_KEY: ${{ secrets.LINODE_SSH_KEY }}
           K3S_TOKEN: ${{ secrets.K3S_TOKEN }}
           TERRAFORM_TOKEN: ${{ secrets.TERRAFORM_TOKEN }}
+          GOOGLE_PROJECT_KEY: ${{ secrets.GOOGLE_PROJECT_KEY }}
+          GOOGLE_PRIVATE_KEY_ID: ${{ secrets.GOOGLE_PRIVATE_KEY_ID }}
+          GOOGLE_PRIVATE_KEY: ${{ secrets.GOOGLE_PRIVATE_KEY }}
+          GOOGLE_CLIENT_EMAIL: ${{ secrets.GOOGLE_CLIENT_EMAIL }}
+          GOOGLE_CLIENT_ID: ${{ secrets.GOOGLE_CLIENT_ID }}
+          GOOGLE_AUTH_URI: ${{ secrets.GOOGLE_AUTH_URI }}
+          GOOGLE_URI_TOKEN: ${{ secrets.GOOGLE_URI_TOKEN }}
+          GOOGLE_CERT_URL: ${{ secrets.GOOGLE_CERT_URL }}
           # DATADOG_AGENT_KEY: ${{ secrets.DATADOG_AGENT_KEY }}
         run: ./deploy.sh

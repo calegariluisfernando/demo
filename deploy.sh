@@ -37,6 +37,8 @@ if [ ! -f "~/.terraform.d/credentials.tfrc.json" ]; then
   mv /tmp/credentials.tfrc.json ~/.terraform.d
 fi
 
+cp google.credential.file.json /tmp
+
 # Execute the provisioning based on the IaC definition file (terraform.tf).
 $TERRAFORM_CMD init --upgrade
 $TERRAFORM_CMD apply -auto-approve \
@@ -44,6 +46,8 @@ $TERRAFORM_CMD apply -auto-approve \
                      -var "digitalocean_ssh_key=$DIGITALOCEAN_SSH_KEY" \
                      -var "linode_token=$LINODE_TOKEN" \
                      -var "linode_ssh_key=$LINODE_SSH_KEY" \
+                     -var "google_credential_file=/tmp/google.credential.file.json" \
+                     -var "google_project_id=$GOOGLE_PROJECT_KEY" \
                      -var "k3s_token=$K3S_TOKEN" #\
                      #-var "datadog_agent_key=$DATADOG_AGENT_KEY"
 
