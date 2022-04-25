@@ -45,6 +45,7 @@ resource "digitalocean_droplet" "cluster-manager" {
     inline = [
       "hostnamectl set-hostname cluster-manager",
       "apt -y update",
+      "sleep 2",
       "apt -y upgrade",
       "apt -y install curl wget htop unzip dnsutils",
       "export K3S_TOKEN=${var.k3s_token}",
@@ -80,6 +81,7 @@ resource "linode_instance" "cluster-worker" {
     inline = [
       "hostnamectl set-hostname cluster-worker",
       "apt -y update",
+      "sleep 2",
       "apt -y upgrade",
       "apt -y install curl wget htop unzip dnsutils",
       "export K3S_URL=https://${digitalocean_droplet.cluster-manager.ipv4_address}:6443",
@@ -91,7 +93,7 @@ resource "linode_instance" "cluster-worker" {
       #"curl -L https://s3.amazonaws.com/dd-agent/scripts/install_script.sh -o install_script.sh",
       #"chmod +x ./install_script.sh",
       #"./install_script.sh"
-    ]
+    ],
 
     connection {
       type        = "ssh"
