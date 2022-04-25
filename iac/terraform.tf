@@ -15,10 +15,6 @@ terraform {
       source  = "linode/linode"
       version = "1.27.0"
     }
-    google = {
-      source = "hashicorp/google"
-      version = "3.5.0"
-    }
   }
 }
 
@@ -107,18 +103,6 @@ resource "linode_instance" "cluster-worker" {
       host        = self.ip_address
     }
   }
-}
-
-provider "google" {
-  credentials = file("${var.google_credential_file}")
-
-  project = "${var.google_project_id}"
-  region  = "us-central1"
-  zone    = "us-central1-c"
-}
-
-resource "google_compute_network" "vpc_network" {
-  name = "terraform-network"
 }
 
 output "cluster-manager-ip" {
