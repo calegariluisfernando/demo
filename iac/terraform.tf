@@ -105,8 +105,8 @@ resource "linode_instance" "cluster-worker" {
   }
 }
 
-resource "linode_instance" "cluster-worker" {
-  label           = "cluster-worker"
+resource "linode_instance" "cluster-worker-2" {
+  label           = "cluster-worker-2"
   image           = "linode/debian10"
   region          = "ap-northeast"
   type            = "g6-standard-2"
@@ -115,7 +115,7 @@ resource "linode_instance" "cluster-worker" {
 
   provisioner "remote-exec" {
     inline = [
-      "hostnamectl set-hostname cluster-worker",
+      "hostnamectl set-hostname cluster-worker-2",
       "apt -y update",
       "sleep 5",
       "apt -y upgrade",
