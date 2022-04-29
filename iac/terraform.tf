@@ -175,7 +175,7 @@ resource "linode_instance" "cluster-worker" {
 #       host        = self.ip_address
 #     }
 #   }
-}
+# }
 
 output "cluster-manager-ip" {
   value = digitalocean_droplet.cluster-manager.ipv4_address
